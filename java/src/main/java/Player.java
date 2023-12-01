@@ -1,16 +1,24 @@
 
 public class Player {
 
-  String playerName;
-  int playerScore;
+  private final String name;
+  private int score;
 
-  public Player(String player1, int i) {
-    this.playerName = player1;
-    this.playerScore = i;
+  public Player(String name, int score) {
+    this.name = name;
+    this.score = score;
   }
 
-  public void increment(){
+  public String getName() {
+    return name;
+  }
 
+  public int getScore() {
+    return score;
+  }
+
+  public void incrementScore(){
+    this.score++;
   }
 
 }

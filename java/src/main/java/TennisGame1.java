@@ -6,33 +6,25 @@ public class TennisGame1 implements TennisGame {
     private static final Map<Integer, String> deucesToScoreString = Map.of(0, "Love-All", 1, "Fifteen-All", 2, "Thirty-All");
     private static final Map<Integer, String> pointToScoreString = Map.of(0, "Love", 1, "Fifteen", 2, "Thirty", 3, "Forty");
     
-    private int scorePlayer1 = 0;
-    private int scorePlayer2 = 0;
-    private Player player1 = new Player("player1", 0);
-    private Player player2 = new Player("player2", 0);
+    private final Referee referee = new Referee();
 
     public TennisGame1() {
     }
 
     public void wonPoint(String playerName) {
-
-        // if ("player1".equals(player1.playerName){}
-
-        if ("player1".equals(playerName)) {
-            scorePlayer1 += 1;
-        } else {
-            scorePlayer2 += 1;
-        }
+        referee.assignPoint(playerName);
     }
 
     public String getScore() {
+        int scorePlayer1 = referee.getScore("player1");
+        int scorePlayer2 = referee.getScore("player2");
         if (scorePlayer1 == scorePlayer2) {
             return deucesToScoreString.getOrDefault(scorePlayer1, "Deuce");
         } else if (scorePlayer1 >= 4 || scorePlayer2 >= 4) {
             return calculateAdvantagesOrWin(scorePlayer1, scorePlayer2);
         } else {
-            String scorePlayer1Str = pointToScoreString.get(this.scorePlayer1);
-            String scorePlayer2Str = pointToScoreString.get(this.scorePlayer2);
+            String scorePlayer1Str = pointToScoreString.get(scorePlayer1);
+            String scorePlayer2Str = pointToScoreString.get(scorePlayer2);
             return scoreTemplate.formatted(scorePlayer1Str, scorePlayer2Str);
         }
     }
