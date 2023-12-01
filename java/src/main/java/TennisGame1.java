@@ -8,11 +8,16 @@ public class TennisGame1 implements TennisGame {
     
     private int scorePlayer1 = 0;
     private int scorePlayer2 = 0;
+    private Player player1 = new Player("player1", 0);
+    private Player player2 = new Player("player2", 0);
 
     public TennisGame1() {
     }
 
     public void wonPoint(String playerName) {
+
+        // if ("player1".equals(player1.playerName){}
+
         if ("player1".equals(playerName)) {
             scorePlayer1 += 1;
         } else {
