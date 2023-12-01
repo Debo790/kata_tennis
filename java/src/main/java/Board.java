@@ -54,5 +54,4 @@ public class Board {
     return scorePlayer1 == scorePlayer2 && (scorePlayer1 == 3 || scorePlayer1 == 4);
   }
 
-
 }
