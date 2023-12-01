@@ -1,21 +1,21 @@
 public class Referee {
 
-  private int scorePlayer1;
-  private int scorePlayer2;
+  private Player player1 = new Player("player1", 0);
+  private Player player2 = new Player("player2", 0);
 
   public void assignPoint(String playerName) {
     if ("player1".equals(playerName)) {
-      scorePlayer1++;
+      player1.incrementScore();
     } else {
-      scorePlayer2++;
+      player2.incrementScore();
     }
   }
 
-  public Integer getScore(String playerName) {
-    if ("player1".equals(playerName)) {
-      return scorePlayer1;
-    } else {
-      return scorePlayer2;
-    }
+  public Integer getScorePlayer1() {
+    return player1.getScore();
+  }
+
+  public Integer getScorePlayer2() {
+    return player2.getScore();
   }
 }
